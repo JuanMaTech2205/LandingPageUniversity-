@@ -1,0 +1,14 @@
+<section id="proyectos">
+  <div class="section-header fade-in">
+    <span class="section-label">Portafolio</span>
+    <h2>Nuestros Proyectos</h2>
+  </div>
+
+  <div class="projects-grid">
+    <article class="project-card fade-in" *ngFor="let proyecto of proyectos">
+      <p class="project-num">{{ proyecto.num }}</p>
+      <h3>{{ proyecto.nombre }}</h3>
+      <p>{{ proyecto.descripcion }}</p>
+    </article>
+  </div>
+</section>

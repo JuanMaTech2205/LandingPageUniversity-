@@ -1,0 +1,28 @@
+<section id="venta">
+  <div class="section-header fade-in">
+    <span class="section-label">Disponibilidad</span>
+    <h2>Proyectos en Venta</h2>
+  </div>
+
+  <div class="table-wrapper fade-in">
+    <table>
+      <caption class="sr-only">Lista de proyectos disponibles con precios</caption>
+      <thead>
+        <tr>
+          <th scope="col">Proyecto</th>
+          <th scope="col">Ubicación</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Precio desde</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of proyectosVenta">
+          <td>{{ item.proyecto }}</td>
+          <td>{{ item.ubicacion }}</td>
+          <td>{{ item.estado }}</td>
+          <td class="price-cell">{{ item.precio }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

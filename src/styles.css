@@ -1,1 +1,147 @@
-/* You can add global styles to this file, and also import other style files */
+/* =============================================
+   VARIABLES CSS - Paleta y tipografía global
+============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --color-bg:        #0f0e0c;
+  --color-surface:   #1a1814;
+  --color-border:    #2e2b25;
+  --color-gold:      #c9a84c;
+  --color-gold-light:#e8c97a;
+  --color-text:      #f0ece4;
+  --color-muted:     #8a8070;
+  --font-display:    'Playfair Display', serif;
+  --font-body:       'DM Sans', sans-serif;
+  --radius:          4px;
+  --transition:      0.3s ease;
+}
+
+/* =============================================
+   RESET Y BASE
+============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* =============================================
+   SECCIONES GENERALES
+============================================= */
+section {
+  padding: 6rem 4rem;
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: var(--color-gold);
+  margin-top: 1rem;
+}
+
+/* =============================================
+   BOTONES
+============================================= */
+.btn-primary {
+  background: var(--color-gold);
+  color: #0f0e0c;
+  padding: 0.9rem 2.2rem;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-gold);
+  padding: 0.9rem 2.2rem;
+  border: 1px solid var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-primary:hover  { background: var(--color-gold-light); transform: translateY(-2px); }
+.btn-secondary:hover { background: var(--color-gold); color: #0f0e0c; }
+
+/* =============================================
+   ANIMACIONES DE ENTRADA
+============================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+
+/* =============================================
+   PIE DE PÁGINA
+============================================= */
+footer {
+  text-align: center;
+  padding: 2.5rem 4rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+   DISEÑO RESPONSIVO
+============================================= */
+@media (max-width: 768px) {
+  section { padding: 4rem 1.5rem; }
+}
