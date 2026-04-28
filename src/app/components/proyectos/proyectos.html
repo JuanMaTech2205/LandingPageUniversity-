@@ -4,7 +4,15 @@
     <h2>Nuestros Proyectos</h2>
   </div>
 
-  <div class="projects-grid">
+  <!-- Indicador de carga: visible mientras se espera la respuesta del backend PHP -->
+  <p class="estado-carga" *ngIf="cargando">Cargando proyectos...</p>
+
+  <!-- Mensaje de error: visible si la petición HTTP al PHP falló -->
+  <p class="estado-error" *ngIf="error">{{ error }}</p>
+
+  <!-- Grid de proyectos: *ngFor recorre el array y genera una tarjeta por cada proyecto -->
+  <!-- Solo se muestra si no hay error y ya terminó de cargar -->
+  <div class="projects-grid" *ngIf="!cargando && !error">
     <article class="project-card fade-in" *ngFor="let proyecto of proyectos">
       <p class="project-num">{{ proyecto.num }}</p>
       <h3>{{ proyecto.nombre }}</h3>

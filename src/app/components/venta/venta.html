@@ -4,7 +4,14 @@
     <h2>Proyectos en Venta</h2>
   </div>
 
-  <div class="table-wrapper fade-in">
+  <!-- Indicador de carga mientras el componente espera respuesta del backend -->
+  <p class="estado-carga" *ngIf="cargando">Cargando disponibilidad...</p>
+
+  <!-- Mensaje de error si la conexión con el PHP falla -->
+  <p class="estado-error" *ngIf="error">{{ error }}</p>
+
+  <!-- Tabla: solo se muestra cuando los datos llegaron correctamente -->
+  <div class="table-wrapper fade-in" *ngIf="!cargando && !error">
     <table>
       <caption class="sr-only">Lista de proyectos disponibles con precios</caption>
       <thead>
@@ -16,6 +23,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- *ngFor itera sobre el array proyectosVenta y genera una fila por cada elemento -->
         <tr *ngFor="let item of proyectosVenta">
           <td>{{ item.proyecto }}</td>
           <td>{{ item.ubicacion }}</td>

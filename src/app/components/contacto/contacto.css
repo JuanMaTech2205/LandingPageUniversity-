@@ -53,6 +53,47 @@ section {
   border-color: var(--color-gold);
 }
 
+/* Mensaje que aparece cuando el formulario se envió exitosamente al PHP */
+.form-success {
+  color: #6fcf97;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #6fcf97;
+  border-radius: var(--radius);
+}
+
+/* Mensaje que aparece cuando hay un error de validación o de conexión */
+.form-error {
+  color: #eb5757;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #eb5757;
+  border-radius: var(--radius);
+}
+
+/* Estilo del botón cuando está deshabilitado durante el envío */
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Indicador de carga de datos desde el backend */
+.estado-carga {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Mensaje de error al cargar datos desde el backend */
+.estado-error {
+  color: #eb5757;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+}
+
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }

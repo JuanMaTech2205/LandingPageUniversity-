@@ -57,7 +57,20 @@
         <small [style.color]="mensajeColor">{{ mensajeContador }} caracteres</small>
       </div>
 
-      <button type="submit" class="btn-primary">Enviar mensaje</button>
+        <!-- El botón se deshabilita mientras se está enviando para evitar envíos duplicados -->
+      <!-- [disabled] es binding de propiedad: deshabilita el botón cuando enviando es true -->
+      <button type="submit" class="btn-primary" [disabled]="enviando">
+        <!-- Muestra texto diferente según el estado del envío -->
+        {{ enviando ? 'Enviando...' : 'Enviar mensaje' }}
+      </button>
+
+      <!-- Mensaje de éxito: visible solo cuando el servidor confirmó el guardado -->
+      <p class="form-success" *ngIf="enviado">
+        ¡Mensaje enviado con éxito! Estaremos en contacto pronto.
+      </p>
+
+      <!-- Mensaje de error: visible si hubo validación fallida o error de conexión -->
+      <p class="form-error" *ngIf="errorEnvio">{{ errorEnvio }}</p>
 
     </form>
 
