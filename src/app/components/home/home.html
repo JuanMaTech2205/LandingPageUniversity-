@@ -1,0 +1,20 @@
+<!-- Contenido principal del landing page -->
+<main>
+  <app-hero></app-hero>
+  <app-proyectos></app-proyectos>
+  <app-venta></app-venta>
+  <app-contacto></app-contacto>
+</main>
+
+<footer>
+  <p>&copy; 2026 Constructora El Progreso. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Botón flotante para volver al inicio de la página -->
+<!-- [class.visible] agrega la clase CSS "visible" cuando showBtnTop es true -->
+<button
+  class="btn-top"
+  [class.visible]="showBtnTop"
+  (click)="scrollToTop()"
+  aria-label="Volver al inicio"
+>↑</button>

@@ -1,0 +1,68 @@
+<div class="admin-wrapper">
+
+  <div class="admin-header">
+    <h1>Panel de Administración</h1>
+    <!-- routerLink navega a la ruta raíz '/' sin recargar la página (SPA navigation) -->
+    <a [routerLink]="['/']" class="btn-volver">← Volver al sitio</a>
+  </div>
+
+  <div class="admin-card">
+    <h2>Agregar nuevo proyecto</h2>
+
+    <!-- ngSubmit captura el envío del formulario y llama al método onGuardar() -->
+    <form (ngSubmit)="onGuardar()" novalidate>
+
+      <div class="form-group">
+        <label for="num">Número del proyecto</label>
+        <!-- [(ngModel)] mantiene el input sincronizado con formData.num en tiempo real -->
+        <input
+          type="text"
+          id="num"
+          name="num"
+          placeholder="Ej: 04"
+          [(ngModel)]="formData.num"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="nombre">Nombre del proyecto</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Ej: Torre Norte"
+          [(ngModel)]="formData.nombre"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          rows="4"
+          placeholder="Descripción detallada del proyecto..."
+          [(ngModel)]="formData.descripcion"
+          required
+        ></textarea>
+      </div>
+
+      <!-- El botón se deshabilita mientras se guarda para evitar envíos duplicados -->
+      <button type="submit" class="btn-guardar" [disabled]="guardando">
+        {{ guardando ? 'Guardando...' : 'Guardar proyecto' }}
+      </button>
+
+      <!-- *ngIf muestra este párrafo solo cuando guardado es true -->
+      <p class="msg-success" *ngIf="guardado">
+        ¡Proyecto guardado exitosamente en la base de datos!
+      </p>
+
+      <!-- *ngIf muestra el error solo cuando errorGuardar tiene contenido -->
+      <p class="msg-error" *ngIf="errorGuardar">{{ errorGuardar }}</p>
+
+    </form>
+  </div>
+
+</div>

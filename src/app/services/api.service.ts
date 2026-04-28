@@ -25,6 +25,12 @@ export interface RespuestaContacto {
   mensaje: string;   // Mensaje de respuesta del servidor
 }
 
+// Respuesta genérica reutilizada por endpoints que solo confirman éxito o error
+export interface RespuestaSimple {
+  success: boolean;
+  mensaje: string;
+}
+
 // providedIn: 'root' hace que el servicio esté disponible en toda la aplicación
 // sin necesidad de declararlo en cada módulo
 @Injectable({ providedIn: 'root' })
@@ -50,5 +56,11 @@ export class ApiService {
   // El segundo parámetro (data) se convierte automáticamente a JSON en el cuerpo del request
   enviarContacto(data: { nombre: string; email: string; mensaje: string }): Observable<RespuestaContacto> {
     return this.http.post<RespuestaContacto>(`${this.baseUrl}/contacto.php`, data);
+  }
+
+  // Hace una petición POST al PHP para insertar un nuevo proyecto en MySQL
+  // Recibe los tres campos requeridos por la tabla 'proyectos'
+  crearProyecto(data: { num: string; nombre: string; descripcion: string }): Observable<RespuestaSimple> {
+    return this.http.post<RespuestaSimple>(`${this.baseUrl}/crear-proyecto.php`, data);
   }
 }

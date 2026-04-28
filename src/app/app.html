@@ -1,20 +1,7 @@
+<!-- El header siempre es visible sin importar en qué ruta esté el usuario -->
 <app-header></app-header>
 
-<main>
-  <app-hero></app-hero>
-  <app-proyectos></app-proyectos>
-  <app-venta></app-venta>
-  <app-contacto></app-contacto>
-</main>
-
-<footer>
-  <p>&copy; 2026 Constructora El Progreso. Todos los derechos reservados.</p>
-</footer>
-
-<!-- Botón volver arriba -->
-<button
-  class="btn-top"
-  [class.visible]="showBtnTop"
-  (click)="scrollToTop()"
-  aria-label="Volver al inicio"
->↑</button>
+<!-- router-outlet es el punto donde Angular renderiza el componente de la ruta activa -->
+<!-- Si la URL es '/' → renderiza HomeComponent -->
+<!-- Si la URL es '/admin' → renderiza AdminComponent -->
+<router-outlet></router-outlet>
